@@ -1,0 +1,17 @@
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: docker/Dockerfile
+    ports:
+      - "7879:7879"
+    env_file:
+      - "./api/.env"
+  web:
+    build:
+      context: ./web
+      dockerfile: docker/Dockerfile
+    ports:
+      - "7878:3000"
+    env_file:
+      - "./web/.env"
